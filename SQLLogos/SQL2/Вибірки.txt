@@ -1,0 +1,24 @@
+SELECT * FROM library.book; //витягнути всі книги
+SELECT * FROM Book WHERE id IN (5,10,13);  //витягнути книги з id 5, 10, 13
+SELECT * FROM Book WHERE `Кількість сторінок` > 150; //витягнути всі книги де кількість сторінок більше 150
+SELECT * FROM Book WHERE `Вік автора` > 30; //витягнути книги, де автори старше 30 років
+SELECT * FROM library.book WHERE `Нагороди автора` IS NULL; //витягнути книги, в яких автори не мають нагород
+SELECT * FROM library.book WHERE `email автора` IN ("KenKen1@gmail.com");  //витягнути книгу по email автора
+SELECT * FROM library.book WHERE `isbn` IN ("0451166892"); //витягнути книгу по isbn
+SELECT * FROM library.book WHERE `Категорія` IN ("Saga");  //витягнути всіх вниги які належать до певної категорії
+SELECT * FROM library.book WHERE `Кількість сторінок` > 200 AND `Вік автора` > 25; //витягнути книги в яких кількість сторінок більше 200 та вік автора більше 25
+SELECT * FROM library.book WHERE `Категорія` IN ("Saga", "Fantasy")  //витягнути книги, в яких категорія "комедія" або "драма"(назви категорії можете змінити)
+SELECT * FROM library.book ORDER BY `Назва книги` ASC;  //витягнути книги та посортувати за назвою
+SELECT * FROM library.book ORDER BY `email автора` ASC;  //витягнути книги та посортувати за email автора
+SELECT * FROM library.book ORDER BY `Кількість сторінок` ASC, `Назва книги` DESC;  //витягнути книги та посортувати за кількістю сторінок(проти алфавіту)
+SELECT DISTINCT `Категорія` FROM library.book;  //витягнути унікальні значення категорій
+SELECT DISTINCT `Ім'я автора` FROM library.book;  //витягнути унікальні імена авторів
+SELECT * FROM Book WHERE `Дата публікації` > "2000-01-01";  //витягнути книги які було написано після '2000-01-01'
+SELECT * FROM Book WHERE `Дата публікації` < "2000-01-01";  //витягнути книги які було написано до '2000-01-01'
+
+
+
+
+
+
+

@@ -1,0 +1,20 @@
+SELECT * FROM library.book; //витягнути всі книжки
+UPDATE library.book SET `Прізвище автора` = 'Tudor' WHERE id IN (2,3) //обновити прізвище автора в 2х книжках
+SELECT COUNT(*) FROM library.book WHERE `Нагороди автора` IS NOT NULL;  //підрахувати кількість книжок, в яких автори мають нагороди
+SELECT * FROM library.book WHERE `Кількість сторінок` = (SELECT min(`Кількість сторінок`) FROM library.book);  //вивести інформацію про книжку з найменшою кількістю сторінок
+SELECT max(`Кількість сторінок`) FROM library.book; //вивести максимальну кількість сторінок
+SELECT AVG(`Ціна €`) FROM library.book;  //вивести середню ціну між всіма книжками
+SELECT COUNT(*) FROM library.book WHERE `Категорія` = "Fantasy";  //порахувати суму книжок за категорією
+SELECT MIN(`Ціна €`) FROM library.book;  //вивести мінімальну ціну книжки
+SELECT * FROM library.book WHERE `Ціна €` = (SELECT MIN(`Ціна €`) FROM library.book); //вивести інформацію про книжку з найменшою ціною
+SELECT * FROM library.book WHERE `Ціна €` LIKE '%.____' ORDER BY `Назва книги` ASC;  //вивести книжки, де ціна матиме 4 знаки після коми, відсортовано за назвою книги
+SELECT * FROM library.book ORDER BY `Дата публікації` LIMIT 5,5;  //вивести книжки за limit (5, 5), (10, 6) та відсортувати за датою публікації.(1/2)
+SELECT * FROM library.book ORDER BY `Дата публікації` LIMIT 10,6;  //вивести книжки за limit (5, 5), (10, 6) та відсортувати за датою публікації.(2/2)
+SELECT * FROM library.book WHERE `Дата публікації` LIKE '2012%';  //написати 3 запити, використавши різні види пошуку за співпадіннями(like)(1/3)
+SELECT * FROM library.book WHERE `Назва книги` LIKE 'The %';  //написати 3 запити, використавши різні види пошуку за співпадіннями(like)(2/3)
+SELECT * FROM library.book WHERE `Назва книги` LIKE '_h%';  //написати 3 запити, використавши різні види пошуку за співпадіннями(like)(3/3)
+SELECT * FROM library.book WHERE `Ціна €` BETWEEN 1.50 AND 120.2;  //вивести книжки де ціна на проміжку: 1. 50-120, 2. 
+SELECT * FROM library.book WHERE `Ціна €` NOT BETWEEN 200 AND 600;  //не включаючи проміжок 200-600.
+DELETE FROM library.book WHERE `id` = 1;  //3 запити на видалення книжки(за id, name, isbn)(id/3)
+DELETE FROM library.book WHERE `Назва книги` = "1984";  //3 запити на видалення книжки(за id, name, isbn)(name/3)
+DELETE FROM library.book WHERE `isbn` = "0099470462";  //3 запити на видалення книжки(за id, name, isbn)(isbn/3)
